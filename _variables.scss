@@ -1,0 +1,62 @@
+/** Import Bootstrap functions */
+@import "~bootstrap/scss/functions";
+
+$theme-colors: (
+  main-font:#212529,
+  primary: #e50f2f,
+  secondary: #f6d7d4,
+  comp-tp: #ffbc58,
+  comp-ak: #6dbafc,
+  comp-zf: #11cd92,
+  comp-ju: #ab4c8e,
+);
+
+// rozmiary do mixinow
+
+$mobile: 768px;
+$small: 992px;
+$medium: 1200px;
+$large: 1920px;
+$xlarge: 3600px;
+
+@mixin lin-gradient($w, $x, $y, $z) {
+  background: linear-gradient($w, $x, $y, $z);
+}
+
+@mixin rad-gradient($x, $y, $z) {
+  background: radial-gradient(ellipse at top, $x, $y, $z), radial-gradient(ellipse at bottom, $x, $y, $z);
+}
+
+/** Bootstrap navbar fix (https://git.io/fADqW) */
+$navbar-dark-toggler-icon-bg: none;
+$navbar-light-toggler-icon-bg: none;
+
+@mixin mobile {
+  @media only screen and (max-width: #{$mobile - 1px}) {
+    @content;
+  }
+}
+
+@mixin small {
+  @media only screen and (min-width: #{$mobile}) and (max-width: #{$small - 1px}) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media only screen and (min-width: #{$small}) and (max-width: #{$medium - 1px}) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media only screen and (min-width: #{$medium}) and (max-width: #{$large - 1px}) {
+    @content;
+  }
+}
+
+@mixin xlarge {
+  @media only screen and (min-width: #{$large}) and (max-width: #{$xlarge - 1px}) {
+    @content;
+  }
+}
